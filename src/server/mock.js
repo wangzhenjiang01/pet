@@ -43,7 +43,7 @@ Mock.mock(
      }
     }
 )
-//文章数据
+//详情页数据
 .mock(
     '/article/getData',
     {
@@ -53,7 +53,7 @@ Mock.mock(
              "data":[
                  {
                      "name":"@cname",
-                     "tag|1-3":["标签1"],
+                     "tag|2-3":["标签2"],
                      "userIcon":"@image",
                      "title":"@ctitle",
                      //"imgGrounp|1-9":["@image"],
@@ -61,7 +61,7 @@ Mock.mock(
                      "articleId|+1":1,
                      "userId|+1":1,
                      "detail":"@cparagraph",
-                     "time":"20161102 10:35",
+                     "time":"2018-03-24 10:35:27",
                      "comment|2-4":[
                          {
                              "commentId|1-100":1,
@@ -69,6 +69,7 @@ Mock.mock(
                              "userIcon":"@image",
                              "content":"@ctitle",
                              "userId|1-100":1,
+                             "time":"@date",
                              "reply|2-5":[
                                  {
                                      "r_name":"@cname",
@@ -85,7 +86,7 @@ Mock.mock(
          }
     }
 )
-//提交评论
+//提交评论后返回数据
 .mock(
     '/article/submit',
     {
@@ -98,26 +99,27 @@ Mock.mock(
                      "tag|1-3":["标签1"],
                      "userIcon":"@image",
                      "title":"@ctitle",
-                     "imgGrounp|1-9":["@image"],
+                     //"imgGrounp|1-9":["@image"],
+                     "imgGrounp|1":["@image"],
                      "articleId|+1":1,
                      "userId|+1":1,
                      "detail":"@cparagraph",
-                     "time":"20161102 10:35",
-                     "comment|2-4":[
+                     "time":"2018-06-25 10:35:27",
+                     "comment|5-6":[
                          {
                              "commentId|1-100":1,
                              "name":"@cname",
                              "userIcon":"@image",
                              "content":"@ctitle",
                              "userId|1-100":1,
+                             "time":"@time",
                              "reply|6":[
                                  {
                                      "r_name":"@cname",
-                                     "name":"jamie",
+                                     "name":"王振江",
                                      "content":"@ctitle",
                                      "userId":"3",
                                      "r_userId":"4"
-
                                  }
                              ]
                          }

@@ -23,8 +23,6 @@ export  default {
             }
         });
     },
-
-
     //获取文章详情 id 文章id
     articleGetContent:function(id,cb){
         axios.get('/article/getData',{
@@ -40,11 +38,10 @@ export  default {
     //提交评论 id 文章id
     articleSubmit:function(val,uid,rname,aid,commentId,cb){
         axios.get('/article/submit',{val:val,uid:uid,rid:rname,aid:aid,commentId:commentId}).then(function(res){
-            console.log(val);
             if(res.data.data.code ==1000){
-                setTimeout(function () {
+                setTimeout(function(){
                     cb(res.data.data.data[0]);
-                },300)
+                },5)
             }});
     },
     //获取用户信息

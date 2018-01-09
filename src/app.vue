@@ -8,17 +8,12 @@
              </transition>
         </div>
         <com-footer v-show="commConf.isFooter"></com-footer>
-        <com-calendar :style="calendar"></com-calendar>
+        <com-calendar v-bind:style="calendarState"></com-calendar>
         <com-loading v-if="loading"></com-loading>
         <div v-show="mark" class="mark" @touchmove.stop.prevent ="" @touchstart.stop.prevent =""  @touchend.stop.prevent =""></div>
     </div>
 </template>
-<style>
-    body{
-        background-color:#fff;
-    }
-</style>
-<script >
+<script>
     import Header from './components/header';
     import Footer from './components/footer';
     import Index from './page/index';
@@ -35,8 +30,8 @@
         created:function(){
             log(this.$route);
             if(this.$route.name==undefined){
-                //this.$router.push('index');
-                this.$router.push('home');
+                this.$router.push('index');
+                //this.$router.push('home');
             }
             this.$store.commit('COMM_CONF',{isFooter:true});
         },
@@ -62,8 +57,9 @@
             mark:function () {
                 return this.$store.getters.markStatus
             },
-            calendar:function () {
-                return this.$store.getters.getCalendarStatus?{ display:'block'}:{display:'none'};
+            //calendarState:function(){
+            calendarState(){
+                return this.$store.getters.getCalendarStatus?{display:'block'}:{display:'none'};
             },
             loading:function () {
                 return this.$store.getters.loading
@@ -78,3 +74,8 @@
         }
     }
 </script>
+<style>
+    body{
+        background-color:#fff;
+    }
+</style>

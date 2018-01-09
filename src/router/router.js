@@ -29,9 +29,9 @@ const routes = [
 
             { path:'/article/:id', name:'article', component : Article},
 
-            { path:'/home/mypet', name:'myPet', component : MyPet},
+            { path:'/home/mypet',name:'myPet',component:MyPet},
 
-            { path:'/home/mypet/addpet', name:'addPet', component : AddPet},
+            { path:'/home/mypet/addpet',name:'addPet',component:AddPet},
         ]
     }
 ];
@@ -44,4 +44,4 @@ const router = new VueRouter({
     //history:true
 });
 
-export  default router
+export default router

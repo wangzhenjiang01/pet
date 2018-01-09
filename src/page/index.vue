@@ -2,18 +2,18 @@
      <div class="index">
         <com-img-scroll :img-data="indexImgData"></com-img-scroll>
         <div class="center">
-          <router-link to="index" class="list">
-              <span class="icon-sheshixiaomao iconfont icon"></span>
-              <p>猫</p>
-          </router-link>
-          <router-link to="page1" class="list">
-              <span class="icon-sheshixiaogou iconfont icon"></span>
-              <p>狗</p>
-          </router-link>
-          <router-link to="home" class="list">
-              <span class="icon-yangyouchongwu iconfont icon"></span>
-              <p>其他</p>
-          </router-link>
+            <router-link to="index" class="list">
+                <span class="icon-sheshixiaomao iconfont icon"></span>
+                <p>猫</p>
+            </router-link>
+            <router-link to="page1" class="list">
+                <span class="icon-sheshixiaogou iconfont icon"></span>
+                <p>狗</p>
+            </router-link>
+            <router-link to="home" class="list">
+                <span class="icon-yangyouchongwu iconfont icon"></span>
+                <p>其他</p>
+            </router-link>
         </div>
         <com-list v-bind:list-data="indexListData"></com-list>
     </div>

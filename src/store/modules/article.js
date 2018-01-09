@@ -18,46 +18,46 @@ const state = {
     }
 };
 
-//Action 通过 store.dispatch 方法触发
+//Action 通过store.dispatch方法触发
 const actions = {
     //获取文章详情
     articleGetContent({commit},id){
         api.articleGetContent(id,function(res){
-            alert(JSON.stringify(res));
             commit(types.ARTICLE_GET_CONTENT,res)
         })
     },
     commonStatus({commit},s){
-        //commit(types.ARTICLE_REPLY_STATUS,s)
-        commit(types.ARTICLE_REPLY_STATUS,true)
+        commit(types.ARTICLE_REPLY_STATUS,s)
+    },
+
+    //设置提交评论的信息
+    setReply({commit},settings){
+        commit(types.ARTICLE_SET_REPLY,settings)
     },
     //提交评论的信息
     submitCommon({commit}){
         let r = state.reply;
-        api.articleSubmit(r.content,'123',r.name,state.article.articleId,r.commentId,function (res) {
+        //alert(JSON.stringify(state.reply));
+        commit(types.COMM_LOADING_STATUS,true);
+        api.articleSubmit(r.content,'123',r.name,state.article.articleId,r.commentId,function(res){
+            commit(types.COMM_LOADING_STATUS,false);
             commit(types.ARTICLE_SUBMIT_COMMENT,res);
         })
-    },
-    //设置提交评论的信息
-    setReply({commit},settings){
-        // "use strict";
-        commit(types.ARTICLE_SET_REPLY,settings)
     }
 };
-
+//mutations 通过store.commit方法触发
 const mutations = {
     [types.ARTICLE_GET_CONTENT](state,res){
         state.article = res
     },
     [types.ARTICLE_REPLY_STATUS](state,s){
-        // "use strict";
         state.reply.isComment = s
-    },
-    [types.ARTICLE_SUBMIT_COMMENT](state,res){
-        state.article = Object.assign(state.article,res)
     },
     [types.ARTICLE_SET_REPLY](state,settings){
         state.reply = Object.assign(state.reply,settings)
+    },
+    [types.ARTICLE_SUBMIT_COMMENT](state,res){
+        state.article = Object.assign(state.article,res)
     }
 };
 

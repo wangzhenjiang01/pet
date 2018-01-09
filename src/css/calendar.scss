@@ -8,9 +8,7 @@
   height: 100vh;
   display: none;
   transition: all .5s;
-  transform: translate(0,100%);
-
-
+  //transform: translate(0,100%);
   .scroller-component {
     display: block;
     position: relative;
@@ -54,9 +52,7 @@
     left: 0;
     top: 102px;
     z-index: 3;
-    background-image:
-            linear-gradient(to bottom, #d0d0d0, #d0d0d0, transparent, transparent),
-            linear-gradient(to top, #d0d0d0, #d0d0d0, transparent, transparent);
+    background-image: linear-gradient(to bottom, #d0d0d0, #d0d0d0, transparent, transparent), linear-gradient(to top, #d0d0d0, #d0d0d0, transparent, transparent);
     background-position: top, bottom;
     background-size: 100% 1px;
     background-repeat: no-repeat;

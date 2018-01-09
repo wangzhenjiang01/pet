@@ -22,7 +22,7 @@
                 <com-comment :replyData="resData.comment"></com-comment>
            </div>
         </div>
-        <com-reply :aid = "resData.articleId" v-show = "isComment"></com-reply>
+        <com-reply :aid="resData.articleId" v-show="isComment"></com-reply>
     </div>
 </template>
 <script>
@@ -40,6 +40,7 @@
         },
         created:function (){
             let vm = this;
+            //vm.$store.dispatch('commConf',{
             vm.$store.commit('COMM_CONF',{
                 isFooter:false,
                 isSearch:false,
@@ -47,16 +48,17 @@
                 isShare:true,
                 title:'详情页'
             });
+            //vm.$store.dispatch('commonStatus',true);
+            //vm.$store.commit('ARTICLE_REPLY_STATUS',true);
+
             let id = this.$route.params.id;
-            log(this.$route.params)
-            /*
-            * 获取文章信息
-            * */
+            log(this.$route.params);
+            //获取文章信息
             vm.$store.dispatch('articleGetContent',id);
         },
         computed:{
             resData(){
-                console.log(this.$store.getters.articleContent);
+                //console.log(this.$store.getters.articleContent);
                 let temp=this.$store.getters.articleContent;
                 return temp
             },

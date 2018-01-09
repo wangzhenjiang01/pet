@@ -21,15 +21,15 @@ const actions  = {
     markStatus({commit},status){
         commit(types.COMM_MARK_STATUS,status);
     },
-    loading({commit}){
-        commit(types.COMM_LOADING_STATUS,true);
+    loading({commit},res){
+        commit(types.COMM_LOADING_STATUS,res);
     }
 };
 
 const getters = {
     commConf : state => state,
-    loading : state => state.loading,
     markStatus : state => state.mark,
+    loading : state => state.loading
 };
 
 const mutations = {
@@ -37,11 +37,10 @@ const mutations = {
         state = Object.assign(state,settings);  //新对象替换老对象
     },
     [types.COMM_MARK_STATUS](state,status){
-        //"use strict";
         state.mark = status
     },
-    [types.COMM_LOADING_STATUS](state,status){
-        state.loading = status
+    [types.COMM_LOADING_STATUS](state,res){
+        state.loading = res
     }
 };
 

@@ -10,7 +10,7 @@
           <ul>
               <li>
                   <a class="link-box">
-                      <span  class="txt">宠物名字</span>
+                      <span class="txt">宠物名字</span>
                       <input type="text" placeholder="宠物名称" v-model="petName">
                   </a>
               </li>
@@ -27,20 +27,20 @@
               </li>
               <li>
                   <router-link to="/index"  class="link-box">
-                      <span  class="txt">宠物品种</span>
+                      <span class="txt">宠物品种</span>
                       <span class="iconfont icon-xiangyoujiantou icon-right"></span>
                   </router-link>
               </li>
               <li>
-                  <a  class="link-box" @click="petBirthday">
-                      <span  class="txt">宠物生日</span>
+                  <a class="link-box" @click="petBirthday">
+                      <span class="txt">宠物生日</span>
                       <span class="iconfont icon-xiangyoujiantou icon-right"></span>
                       <span class="dateNum">{{birthday}}</span>
                   </a>
               </li>
               <li>
-                  <a  class="link-box">
-                      <span  class="txt">到家时间</span>
+                  <a class="link-box">
+                      <span class="txt">到家时间</span>
                       <span class="iconfont icon-xiangyoujiantou icon-right"></span>
                   </a>
               </li>
@@ -89,7 +89,8 @@
                     this.sex = s;
                 }
             },
-            petBirthday:function () {
+            //petBirthday:function () {
+            petBirthday() {
                 this.$store.dispatch('calendarStatus',true);
             },
             uploadImg:function (e) {

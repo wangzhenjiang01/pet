@@ -3,22 +3,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title>宠物1s</title>
+    <title>宠物领养</title>
     <link rel="stylesheet" href="src/css/icon/iconfont.css"/>
     <script>
-        (function (doc, win) {
+        (function(doc,win){
             var docEl = doc.documentElement,
                     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
                     recalc = function () {
                         var clientWidth = docEl.clientWidth;
                         if (!clientWidth) return;
-                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                        docEl.style.fontSize=16*(clientWidth/320)+'px';
                     };
             if (!doc.addEventListener) return;
             win.addEventListener(resizeEvt, recalc, false);
             doc.addEventListener('DOMContentLoaded', recalc, false);
         })(document, window);
     </script>
+    <!--<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>-->
 </head>
 <body>
     <div id="app">

@@ -13,22 +13,23 @@ const state = {
 }
 
 const actions = {
-    calendarStatus:function ({commit},status) {
+    calendarStatus:function({commit},status){
         commit(types.COMM_MARK_STATUS,status);
         commit(types.CALENDAR_STATUS,status)
     },
-    calendarDateStatus:function ({commit},date) {
-        commit(types.CALENDAR_DATE_STATUS,date);
-        log(date);
-    },
-    calendarOk:function ({commit},status) {
+    calendarOk:function({commit},status){
         commit(types.CALENDAR_CHOICE,status);
         if(state.dateYear&&state.dateMonth&&state.dateDay&&status){
-            commit(types.CALENDAR_GET_DATE);
             commit(types.COMM_MARK_STATUS,false);
             commit(types.CALENDAR_STATUS,false);
+
+            commit(types.CALENDAR_GET_DATE);
             commit(types.CALENDAR_CHOICE,false);
         }
+    },
+    calendarDateStatus:function({commit},date){
+        commit(types.CALENDAR_DATE_STATUS,date);
+        log(date);
     }
 }
 
