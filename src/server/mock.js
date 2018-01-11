@@ -21,7 +21,8 @@ Mock.mock(
                     "userIcon":"@image",
                     "detail":"@cparagraph",
                     "imgGrounp|1-9":["@image"],
-                    "articleId|+1":1
+                    "articleId|+1":1,
+                    'uuid|+1':888
                 },
             ]
         }
@@ -31,16 +32,17 @@ Mock.mock(
 .mock(
     '/index/getImgList',
     {
-     "data":{
-         "code":"1000",
-         "msg":"success",
-         "data|3-6":[
-             {
-                 img:'@image',
-                 imgUrl:'/index',
-             }
-         ]
-     }
+        "data":{
+             "code":"1000",
+             "msg":"success",
+             "data|5":[
+                 {
+                     img:'@image',
+                     imgUrl:'/',
+                     //imgUrl:'https://www.hao123.com',
+                 }
+             ]
+        }
     }
 )
 //详情页数据
@@ -129,7 +131,6 @@ Mock.mock(
          }
     }
 )
-
 //获取个人信息
 .mock(
     '/home/index',

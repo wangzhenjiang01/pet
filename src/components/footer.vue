@@ -7,11 +7,11 @@
             </router-link>
             <router-link to="/page1">
                 <span class="icon-xitongcaidan iconfont"></span>
-                <p>宠圈</p>
+                <p>朋友圈</p>
             </router-link>
             <router-link to="/home">
                 <span class="icon-myline iconfont"></span>
-                <p>个人</p>
+                <p>个人中心</p>
             </router-link>
         </div>
     </div>

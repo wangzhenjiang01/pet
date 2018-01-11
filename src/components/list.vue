@@ -1,7 +1,7 @@
 <template>
 <div class="com-list">
 	<div class="title">推荐</div>
-	<ul >
+	<ul>
 		<li class="list-li" v-for="(value,key) in doList">
 			<div class="user">
 				<img :src="value.userIcon" alt=""/>
@@ -12,7 +12,7 @@
 					</div>
 				</div>
 				<!--<a class="btn-d">详情{{value.articleId}}</a>-->
-				<router-link :to="{name:'article',params:{id:value.articleId,uid:{a:123,b:123}}}" class="btn-d btn-s">详情</router-link>
+				<router-link :to="{name:'article',params:{id:value.articleId,uid:{a:123,b:456},uuid:value.uuid}}" class="btn-d btn-s">详情</router-link>
 			</div>
 			<div class="detail">
 				<p>{{value.detail}}</p>
@@ -44,7 +44,8 @@
 			}
 		},
 		computed:{
-			doList:function () {
+			//doList:function () {
+			doList(){
 				return this.listData;
 			}
 		},

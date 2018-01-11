@@ -27,7 +27,7 @@ const routes = [
 
             { path: '/HomeUserInfo/:uid', name:'homeUserInfo1', component: HomeUserInfo },
 
-            { path:'/article/:id', name:'article', component : Article},
+            { path:'/article/:id/:uuid', name:'article', component : Article},
 
             { path:'/home/mypet',name:'myPet',component:MyPet},
 

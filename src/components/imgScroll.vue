@@ -1,9 +1,11 @@
 <template>
     <div class="img-scroll">
         <ul class="clearfix" >
-            <li v-for="item in doImgData" @touchstart.stop="start" @touchmove.stop="move" @touchend.stop = "end">
-                <a><img :src=item.img></a>
-                <!--<a :href="item.imgUrl"><img :src=item.img></a>-->
+            <li v-for="item in doImgData" @touchstart.stop="start" @touchmove.stop="move" @touchend.stop="end">
+                <!--<a><img :src=item.img></a>-->
+                <a :href="item.imgUrl">
+                    <img :src="item.img">
+                </a>
             </li>
         </ul>
         <div class="img-nav"></div>
@@ -18,9 +20,9 @@
               scroll:{
                   sTime:null,
                   width:document.body.clientWidth,
-                  w:0,             //�ƶ��Ŀ��
-                  startX:0,    //��ʼ��x����,
-                  endX:0,    //��ʼ��x����,
+                  w:0,
+                  startX:0,
+                  endX:0,
                   actIndex:0,
                   oUl:null,
                   oLi:null,
@@ -41,22 +43,18 @@
         },
         props:{
             imgData:{
-                type:Array,
-
+                type:Array
             }
         },
         computed:{
-            doImgData:function () {
+            doImgData:function(){
                return this.imgData
             }
         },
         methods:{
-            //ͼƬ����
             myScroll:function(){
                 let vm = this;
-
             },
-            //ѭ������ͼƬ
             circulate:function () {
 
             },
@@ -66,27 +64,21 @@
                 d.endX = e.changedTouches[0].clientX;
                 let c =  d.startX - e.changedTouches[0].clientX;
                 if(Math.abs(c)<=d.width*0.35){
-
                     d.oUl.style.webkitTransform = 'translate3d(-'+ d.actIndex * d.width+'px,0,0)';
                     d.oUl.style.webkitTransition = 'all 0.3s';
                     d.isMoving = false;
                 }
                 if(c>=0){
-
                     if(Math.abs(c)>=d.width*0.4&&!d.isMoving){
                         d.isMoving = true;
                         this.next();
                     }
                 }else{
-
                     if(Math.abs(c)>=d.width*0.4&&!d.isMoving){
-
                         d.isMoving = true;
                         this.prev();
                     }
-
                 }
-
             },
             start:function (e) {
                 let vm = this,
@@ -103,46 +95,35 @@
                     d.oUl.style.webkitTransition = 'all 0s';
                     let t =Math.abs(c)/150*-0.5+0.5;
                 }
-//                if(c>=0){
-//
-//                    if(Math.abs(c)>=d.width*0.35&&!d.isMoving){
-//                        d.isMoving = true;
-//                        this.next();
-//                    }
-//                }else{
-//
-//                    if(Math.abs(c)>=d.width*0.35&&!d.isMoving){
-//
-//                        d.isMoving = true;
-//                        this.prev();
-//                    }
-//
-//                }
+                if(c>=0){
+                    if(Math.abs(c)>=d.width*0.35&&!d.isMoving){
+                        d.isMoving = true;
+                        this.next();
+                    }
+                }else{
+                    if(Math.abs(c)>=d.width*0.35&&!d.isMoving){
+                        d.isMoving = true;
+                        this.prev();
+                    }
+                }
             },
-            /*
-            * ��һҳ
-            * */
             next:function () {
                 let vm = this,
-                  d = vm.scroll;
-                  if(d.actIndex<d.imgL-1){
-                      d.actIndex ++;
-                  }
-                    d.changeX =  d.actIndex * d.width;
-//                d.oUl.style.webkitTransitionTimingFunction = 'cubic-bezier(0,1,0,1)';
-                    d.oUl.style.webkitTransform = 'translate3d(-'+d.changeX+'px,0,0)';
-                    d.oUl.style.webkitTransition = 'all 0.3s';
-                    setTimeout(function () {
-                        d.isMoving = false;
-                    },300)
-
+                d = vm.scroll;
+                if(d.actIndex<d.imgL-1){
+                   d.actIndex ++;
+                }
+                d.changeX =  d.actIndex * d.width;
+                //d.oUl.style.webkitTransitionTimingFunction = 'cubic-bezier(0,1,0,1)';
+                d.oUl.style.webkitTransform = 'translate3d(-'+d.changeX+'px,0,0)';
+                d.oUl.style.webkitTransition = 'all 0.3s';
+                setTimeout(function () {
+                    d.isMoving = false;
+                },300)
             },
-            /*
-             * ��һҳ
-             * */
             prev:function () {
                 let vm = this,
-                 d = vm.scroll;
+                d = vm.scroll;
                 if(d.actIndex>0){
                     d.actIndex --;
                 }
@@ -152,24 +133,18 @@
                 setTimeout(function () {
                     d.isMoving = false;
                 },300)
-
             },
-
             handleM:function (t) {
                 let vm = this,
                 d = vm.scroll;
-                //ȡ���Զ�����
                 clearInterval(d.sTime);
                 if(t==1&&d.w==d.oLi.length-1){
                     return false
                 }else if(t==-1&&d.w==0){
                     return false
                 }
-
                 d.w = t+d.w;
                 d.oUl.style.right = d.w*100+'%';
-
-                //�ƶ�������ʱ��
                 d.isMove = true;
                 setTimeout(function () {
                     d.isMove = false;
@@ -177,10 +152,8 @@
                         vm.circulate()
                     },3000)
                 },600);
-
                 return false
             }
-
         }
     }
 </script>

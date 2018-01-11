@@ -1,6 +1,7 @@
 <template>
      <div class="index">
-        <com-img-scroll :img-data="indexImgData"></com-img-scroll>
+        <!--<com-img-scroll :img-data="indexImgData"></com-img-scroll>-->
+        <com-swipe :img-data="indexImgData"></com-swipe>
         <div class="center">
             <router-link to="index" class="list">
                 <span class="icon-sheshixiaomao iconfont icon"></span>
@@ -20,6 +21,7 @@
 </template>
 <script>
     import imgScroll from '../components/imgScroll.vue';
+    import Swipe from '../components/common/Swipe.vue';
     import list from '../components/list.vue';
     import {mapGetters,mapActions} from 'vuex';
     require('../css/index.scss');
@@ -50,6 +52,7 @@
         },
         components:{
           comImgScroll:imgScroll,
+          comSwipe:Swipe,
           comList:list,
         },
         computed: mapGetters({  //mapGetters 辅助函数仅仅是将store中的getter映射到局部计算属性

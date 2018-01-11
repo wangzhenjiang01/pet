@@ -1,10 +1,10 @@
 <template>
     <div class="com-app-box">
-        <!--<com-header :commData = "commConf" ></com-header>-->
+        <!--<com-header :commData = "commConf"></com-header>-->
         <comHeader :commData="commConf"></comHeader>
         <div class="com-app">
              <transition :name="transitionName">
-                  <router-view class="child-view"></router-view>
+                 <router-view class="child-view"></router-view>
              </transition>
         </div>
         <com-footer v-show="commConf.isFooter"></com-footer>
@@ -21,6 +21,7 @@
     import loading from './components/loading.vue';
     require('./css/app.scss');
     require('./css/style.scss');
+    require('./css/common/mint.css');
     export default{
         data:function(){
                 return {

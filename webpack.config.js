@@ -1,5 +1,7 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
     entry: './src/main.js',
     output: {
@@ -21,10 +23,13 @@ module.exports = {
                 loader: 'url',
                 query: {
                     limit: 10000
-
                 }
             },
-
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loaders: ["style","css"]
+            },
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
