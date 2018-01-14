@@ -5,7 +5,7 @@
                 <span class="icon-shouye iconfont"></span>
                 <p>首页</p>
             </router-link>
-            <router-link to="/page1">
+            <router-link to="/friend">
                 <span class="icon-xitongcaidan iconfont"></span>
                 <p>朋友圈</p>
             </router-link>

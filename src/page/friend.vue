@@ -1,14 +1,16 @@
 <template>
     <div>
         <div>
-            <p>{{data}}</p>
-            <p>{{reversedMessage}}</p>
-            <p @click="change">点击{{count}}</p>
+            <!--<p>{{data}}</p>-->
+            <!--<p>{{reversedMessage}}</p>-->
+            <!--<p @click="change">点击{{count}}</p>-->
+            <com-infiniteScroll></com-infiniteScroll>
         </div>
     </div>
 </template>
 <script>
     import Vue from 'vue';
+    import infiniteScroll from '../components/infiniteScroll.vue';
     let data = {
         data:'paaSdSdcZcxxxzXcZcge1',
         count:0
@@ -22,6 +24,9 @@
             reversedMessage(){
                 return this.data.split('').reverse().join('')
             }
+        },
+        components:{
+            comInfiniteScroll:infiniteScroll,
         },
         methods:{
             change(){

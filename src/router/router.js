@@ -5,7 +5,7 @@ import Vue from 'vue';
 import VueRouter from 'vueRouter';
 import App from '../app';
 import Index from '../page/index';
-import Page1 from '../page/page1';
+import Friend from '../page/friend';
 import Home from '../page/home';
 import Article from '../page/article';
 import HomeUserInfo from '../page/homeUserInfo';
@@ -21,7 +21,7 @@ const routes = [
         children: [
             { path: '/index', name:'index', component: Index },
 
-            { path: '/page1', name:'page1', component: Page1 },
+            { path: '/friend', name:'friend', component: Friend },
 
             { path: '/home', name:'home1', component: Home},
 

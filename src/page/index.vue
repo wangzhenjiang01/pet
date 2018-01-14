@@ -53,7 +53,7 @@
         components:{
           comImgScroll:imgScroll,
           comSwipe:Swipe,
-          comList:list,
+          comList:list
         },
         computed: mapGetters({  //mapGetters 辅助函数仅仅是将store中的getter映射到局部计算属性
             //将 getter 混入 computed 对象中

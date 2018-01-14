@@ -618,6 +618,7 @@ display: inline-block;
     position: absolute
 }
 .mint-spinner-fading-circle-circle::before {
+    background-color: #f00;
     content: " ";
     display: block;
     margin: 0 auto;
